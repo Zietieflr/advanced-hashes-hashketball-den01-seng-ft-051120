@@ -248,6 +248,8 @@ def winning_team
   game_hash[winner[0]][:team_name]; 
 end #=> "Brooklyn Nets"
 
+puts winning_team;
+
 #Returns name of player with the most characters 
 def player_with_longest_name
   player_collection.reduce { |longest_name, next_player|
