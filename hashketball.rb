@@ -236,18 +236,17 @@ def winning_team
   final_scores = player_collection.reduce(home: 0, away: 0) { |teams_points, next_player|
     case 
       when next_player[:location] === :away
-        teams_points[:away] + next_player[:points];
+        teams_points[:away] += next_player[:points];
       when next_player[:location] === :home
-        teams_points[:home] + next_player[:points];
+        teams_points[:home] += next_player[:points];
     end
+    teams_points; 
   }
   winner = final_scores.reduce { |highest_points, team_points| 
     highest_points[1] > team_points[1] ? highest_points : team_points;  
   }
   game_hash[winner[0]][:team_name]; 
 end #=> "Brooklyn Nets"
-
-puts winning_team;
 
 #Returns name of player with the most characters 
 def player_with_longest_name
@@ -267,5 +266,3 @@ def long_name_steals_a_ton
   }
   long_name_player === most_steals_player; 
 end #=> true
-
-
