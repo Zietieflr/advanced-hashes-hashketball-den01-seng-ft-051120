@@ -236,11 +236,10 @@ def winning_team
   final_scores = player_collection.reduce(home: 0, away: 0) { |teams_points, next_player|
     case 
       when next_player[:location] === :away
-        teams_points[:away] += next_player[:points];
+        teams_points[:away] + next_player[:points];
       when next_player[:location] === :home
-        teams_points[:home] += next_player[:points];
+        teams_points[:home] + next_player[:points];
     end
-    teams_points; 
   }
   winner = final_scores.reduce { |highest_points, team_points| 
     highest_points[1] > team_points[1] ? highest_points : team_points;  
