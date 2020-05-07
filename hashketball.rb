@@ -258,6 +258,8 @@ def player_with_longest_name
   #probably easier to read to declare variable, however, good to know this works. 
 end #=> "Bismack Biyombo"
 
+puts player_with_longest_name;
+
 #Returns true if the player with the longest name, steals a lot. 
 def long_name_steals_a_ton 
   long_name_player = player_collection.reduce { |longest_name, next_player|
@@ -268,3 +270,5 @@ def long_name_steals_a_ton
   }
   long_name_player === most_steals_player; 
 end #=> true
+
+puts long_name_steals_a_ton;
